@@ -1,2 +1,3 @@
-# Development.Guidelines
-PayEx Development Guidelines
+# PayEx Development Guidelines
+
+This repository contains PayEx Development Guidelines. 
