@@ -98,7 +98,7 @@ represents and the commit should be in the branch corresponding with
 what’s being released; stable code should be in the master branch,
 while pre-release, alpha or beta code should be in the develop branch
 or in a release/ prefixed branch.If a stable version `1.2.5` of a project is to be released, the commit
-epresenting that version should be tagged in Git with the value `1.2.5`
+representing that version should be tagged in Git with the value `1.2.5`
 and the commit should exist in the master branch.To help with automating versioning in .NET based projects,
 [GitVersion][gitversion] can be used. For most uses,
 [GitVersionTask][gitversiontask] performs the job perfectly. It understands
