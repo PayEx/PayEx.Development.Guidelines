@@ -27,9 +27,9 @@ If you choose option 3 (forking the repository), then please read on.
 * Submit a [pull request][pull-request] for the pushed branch.
 
 
-[coc]:				CODE_OF_CONDUCT.md
-[github]:			https://github.com/signup/free
-[edit]:				https://help.github.com/articles/editing-files-in-your-repository/
+[coc]:              CODE_OF_CONDUCT.md
+[github]:           https://github.com/signup/free
+[edit]:             https://help.github.com/articles/editing-files-in-your-repository/
 [forking]:          https://help.github.com/articles/fork-a-repo/
 [branching]:        https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
 [commit]:           https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
