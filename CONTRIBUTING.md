@@ -4,14 +4,14 @@ To contribute to the PayEx Development Guidelines, there's just a few things you
 
 ## Getting Started
 
-* Read and make sure you agree with the [Code of Conduct][coc]
-* Make sure you have a [GitHub account][github]
+* Read and make sure you agree with the [Code of Conduct][coc].
+* Make sure you have a [GitHub account][github].
 * Then, you have three options:
     1. Submit a ticket for your issue, assuming one does not already exist.
         * Clearly describe the issue including steps to reproduce when it is a bug.
         * Make sure you fill in the earliest version that you know has the issue.
-    2. [Directly edit the file][edit] you want to change on GitHub
-    3. [Fork the repository on GitHub][forking]
+    2. [Directly edit the file][edit] you want to change on GitHub.
+    3. [Fork the repository on GitHub][forking].
 
 If you choose option 3 (forking the repository), then please read on.
 
@@ -22,7 +22,7 @@ If you choose option 3 (forking the repository), then please read on.
   * Please avoid working directly on the `master` branch.
 * Make [commits][commit] of logical units in the new branch.
 * Check for unnecessary whitespace with `git diff --check` before committing.
-* Make sure your [commit messages][commit-message] are well written and in the proper format
+* Make sure your [commit messages][commit-message] are well written and in the proper format.
 * [Push][push] the branch to your [forked repository ("remote")][remote].
 * Submit a [pull request][pull-request] for the pushed branch.
 
