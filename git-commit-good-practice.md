@@ -1,37 +1,38 @@
 # Git Commit Good Practice
 
-The following document is based on experience doing code development, bug troubleshooting and code review across a number of projects using Git, including libvirt, QEMU and OpenStack Nova. Examination of other open source projects such as the Kernel, CoreUtils, GNULIB and more suggested they all follow a fairly common practice. It is motivated by a desire to improve the quality of the Nova Git history. Quality is a hard term to define in computing; one person's "Thing of Beauty" is another's "Evil Hack". We can, however, come up with some general guidelines for what to do, or conversely what not to do, when publishing Git commits for merge with a project, in this case, OpenStack.
+The following document is a fork of [OpenStack's Git Commit Good Practice][openstack-gcm], rewritten to suit PayEx needs. It is based on experience doing code development, bug troubleshooting and code review across a number of projects using Git. Examination of other open source projects suggested they all follow a fairly common practice. It is motivated by a desire to improve the quality of the Git history in any repository. Quality is a hard term to define in computing; one person's "Thing of Beauty" is another's "Evil Hack". We can, however, come up with some general guidelines for what to do, or conversely what not to do, when publishing Git commits for merge with a project.
 
-This topic can be split into two areas of concern
+This topic can be split into two areas of concern:
 
 1. The structured set/split of the code changes
 2. The information provided in the commit message
 
 ## Executive Summary
-The points and examples that will be raised in this document ought to clearly demonstrate the value in splitting up changes into a sequence of individual commits, and the importance in writing good commit messages to go along with them. If these guidelines were widely applied it would result in a significant improvement in the quality of the OpenStack Git history. Both a carrot & stick will be required to effect changes. This document intends to be the carrot by alerting people to the benefits, while anyone doing Gerrit code review can act as the stick ;-P
 
-In other words, when reviewing a change in Gerrit, do not simply look at the correctness of the code. Review the commit message itself and request improvements to its content. Look out for commits which are mixing multiple logical changes and require the submitter to split them into separate commits. Ensure whitespace changes are not mixed in with functional changes. Ensure no-op code refactoring is done separately from functional changes. And so on.
+The points and examples that will be raised in this document ought to clearly demonstrate the value in splitting up changes into a sequence of individual commits, and the importance in writing good commit messages to go along with them. If these guidelines were widely applied it would result in a significant improvement in the quality of the  Git history. Both a carrot and a stick will be required to effect changes. This document intends to be the carrot by alerting people to the benefits, while for anyone doing  code reviews, it can act as the stick.
 
-It might be mentioned that Gerrit's handling of patch series is not entirely perfect. This is not a valid reason to avoid creating patch series. The tools being used should be subservient to developers needs, and since they are open source they can be fixed / improved. Software source code is "read mostly, write occassionally" and thus the most important criteria is to improve the long term maintainability by the large pool of developers in the community, and not to sacrifice too much for the sake of the single author who may never touch the code again.
+In other words, when reviewing a change, do not simply look at the correctness of the code. Review the commit message itself and request improvements to its content. Look out for commits which are mixing multiple logical changes and require the submitter to split them into separate commits. Ensure whitespace changes are not mixed in with functional changes. Ensure no-op code refactoring is done separately from functional changes. And so on.
 
-And now the long detailed guidelines & examples of good & bad practice
+Software source code is "read mostly, write occassionally" and thus the most important criteria is to improve the long term maintainability by the large pool of developers in the community, and not to sacrifice too much for the sake of the single author who may never touch the code again.
+
+And now the long detailed guidelines and examples of good and bad practice.
 
 ## Structural split of changes
 The cardinal rule for creating good commits is to ensure there is only one "logical change" per commit. There are many reasons why this is an important rule:
 
-- The smaller the amount of code being changed, the quicker & easier it is to review & identify potential flaws.
+- The smaller the amount of code being changed, the quicker and easier it is to review and identify potential flaws.
 - If a change is found to be flawed later, it may be necessary to revert the broken commit. This is much easier to do if there are not other unrelated code changes entangled with the original commit.
-- When troubleshooting problems using Git's bisect capability, small well defined changes will aid in isolating exactly where the code problem was introduced.
+- When troubleshooting problems using Git's [bisect][bisect] capability, small well defined changes will aid in isolating exactly where the code problem was introduced.
 - When browsing history using Git annotate/blame, small well defined changes also aid in isolating exactly where & why a piece of code came from.
 
 ### Things to avoid when creating commits
 With that in mind, there are some commonly encountered examples of bad things to avoid
 
-- **Mixing whitespace changes with functional code changes.**
+- **Mixing formatting changes with functional code changes.**
 
-  The whitespace changes will obscure the important functional changes, making it harder for a reviewer to correctly determine whether the change is correct.
+  The formatting (code style, whitespace, etc.) changes will obscure the important functional changes, making it harder for a reviewer to correctly determine whether the change is correct.
 
-  ***Solution***: Create 2 commits, one with the whitespace changes, one with the functional changes. Typically the whitespace change would be done first, but that need not be a hard rule.
+  **Solution**: Create 2 commits, one with the formatting changes and one with the functional changes. Typically the formatting change would be done first, but that need not be a hard rule.
 
 - **Mixing two unrelated functional changes.**
 
@@ -39,7 +40,9 @@ With that in mind, there are some commonly encountered examples of bad things to
 
 - **Sending large new features in a single giant commit.**
 
-  It may well be the case that the code for a new feature is only useful when all of it is present. This does not, however, imply that the entire feature should be provided in a single commit. New features often entail refactoring existing code. It is highly desirable that any refactoring is done in commits which are separate from those implementing the new feature. This helps reviewers and test suites validate that the refactoring has no unintentional functional changes.
+  It may well be the case that the code for a new feature is only useful when all of it is present. This does not, however, imply that the entire feature should be provided in a single commit. To group related code changes that for the reasons explained here are split up into several separate commits, intuitively named branches should be used instead.
+
+  New features often entail refactoring existing code. It is highly desirable that any refactoring is done in commits which are separate from those implementing the new feature. This helps reviewers and test suites validate that the refactoring has no unintentional functional changes.
 
   Even the newly written code can often be split up into multiple pieces that can be independently reviewed. For example, changes which add new internal APIs/classes, can be in self-contained commits. Again this leads to easier code review. It also allows other developers to cherry-pick small parts of the work, if the entire new feature is not immediately ready for merge.
 
@@ -50,6 +53,7 @@ The basic rule to follow is:
 > If a code change can be split into a sequence of patches/commits, then it should be split. **Less is *not* more. More is more**.
 
 ### Examples of bad practice
+
 Now for some illustrations from Nova history. NB, although commit hashes are quoted for reference, author names are removed, since no single person needs to be blamed/picked on. Almost everybody is guilty of violating these good practice rules at some time or another. In addition the people who reviewed & approved these commits are just as guilty as the person who wrote/submitted them ;-P
 
 #### Example 1
@@ -432,3 +436,6 @@ Some things to note about this example commit message
 - It describes the intent of the fix  (make the schedular filter on arch)
 - It describes the rough architecture of the fix (how libvirt returns arch)
 - It notes the limitations of the fix (work needed on Xen)
+
+[openstack-gcm]:    https://wiki.openstack.org/wiki/GitCommitMessages
+[bisect]:           https://git-scm.com/book/en/v2/Git-Tools-Debugging-with-Git
