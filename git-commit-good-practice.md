@@ -283,7 +283,7 @@ remember
   Always document what the original problem was and how it is being fixed, for
   any change except the most obvious typos, or whitespace only commits.
 
-- **Describe ''why'' a change is being made.**
+- **Describe *why* a change is being made.**
 
   A common mistake is to just document how the code has been written, without
   describing /why/ the developer chose to do it that way. By all means describe
@@ -296,7 +296,7 @@ remember
   should have in fact been split into 2 or more parts. Don't be afraid to go
   back and rebase the change to split it up into separate commits.
 
-* **Ensure sufficient information to decide whether to review.**
+- **Ensure sufficient information to decide whether to review.**
 
   When Gerrit sends out email alerts for new patch submissions there is minimal
   information included, principally the commit message and the list of files
@@ -305,7 +305,7 @@ remember
   contain sufficient information to alert the potential reviewers to the fact
   that this is a patch they need to look at.
 
-* **The first commit line is the most important.**
+- **The first commit line is the most important.**
 
   In Git commits the first line of the commit message has special significance.
   It is used as email subject line, git annotate messages, gitk viewer
@@ -314,18 +314,18 @@ remember
   detail what part of the code is affected. eg if it affects the libvirt driver,
   mention 'libvirt' somewhere in the first line.
 
-* **Describe any limitations of the current code.**
+- **Describe any limitations of the current code.**
 
   If the code being changed still has future scope for improvements, or any
   known limitations then mention these in the commit message. This demonstrates
   to the reviewer that the broader picture has been considered and what
   tradeoffs have been done in terms of short term goals vs. long term wishes.
 
-* **Do not include patch set-specific comments.**
+- **Do not include patch set-specific comments.**
 
   In other words, if you rebase your change please don't add "Patch set 2:
   rebased" to your commit message.  That isn't going to be relevant once your
-  change has merged.  Please ''do'' make a note of that in Gerrit as a comment
+  change has merged.  Please *do* make a note of that in Gerrit as a comment
   on your change, however.  It helps reviewers know what changed between patch
   sets.  This also applies to comments such as "Added unit tests", "Fixed
   localization problems", or any other such patch set to patch set changes that
@@ -333,8 +333,9 @@ remember
 
 The main rule to follow is:
 
- The commit message must contain all the information required to fully understand &
- review the patch for correctness. ''Less is **not** more. More is more.''
+> The commit message must contain all the information required to fully
+> understand & review the patch for correctness.
+> **Less is *not* more. More is more.**
 
 ### Including external references
 The commit message is primarily targeted towards human interpretation, but there
@@ -408,10 +409,10 @@ tools to observe it when collecting statistics.
 - Subsequent lines should be wrapped at 72 characters.
   - vim (the default $EDITOR on most distros) can wrap automatically lines for
     you. In most cases you just need to copy the example vimrc file (which can
-   be found somewhere like <code>/usr/share/vim/vim74/vimrc_example.vim</code>)
-    to <code>~/.vimrc</code> if you don't have one already.
+   be found somewhere like `/usr/share/vim/vim74/vimrc_example.vim`)
+    to `~/.vimrc` if you don't have one already.
   - After editing a paragraph, you can re-wrap it by pressing escape, ensuring
-    the cursor is within the paragraph and typing <code>gqip</code>.
+    the cursor is within the paragraph and typing `gqip`.
 - Put the 'Change-id', 'Closes-Bug #NNNNN' and 'blueprint NNNNNNNNNNN' lines at
   the very end.
 
