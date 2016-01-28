@@ -22,7 +22,7 @@ If you choose option 3 (forking the repository), then please read on.
   * Please avoid working directly on the `master` branch.
 * Make [commits][commit] of logical units in the new branch.
 * Check for unnecessary whitespace with `git diff --check` before committing.
-* Make sure your [commit messages][commit-message] are well written and in the proper format.
+* Make sure your [commit messages][commit-practice] are well written and in the proper format.
 * [Push][push] the branch to your [forked repository ("remote")][remote].
 * Submit a [pull request][pull-request] for the pushed branch.
 
@@ -33,7 +33,7 @@ If you choose option 3 (forking the repository), then please read on.
 [forking]:          https://help.github.com/articles/fork-a-repo/
 [branching]:        https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
 [commit]:           https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
-[commit-message]:   https://wiki.openstack.org/wiki/GitCommitMessages
+[commit-practice]:  git-commit-good-practice.md
 [push]:             https://git-scm.com/docs/git-push
 [remote]:           https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
 [pull-request]:     https://help.github.com/articles/using-pull-requests/
