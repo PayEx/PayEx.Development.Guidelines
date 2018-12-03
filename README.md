@@ -1,5 +1,3 @@
 # PayEx Development Guidelines
 
-This repository contains PayEx Development Guidelines.
-
-* [PayEx Open Source Development Guidelines](open-source-development-guidelines.md)
+[PayEx' Development Guidelines have moved to the PayEx Developer Portal](https://developer.payex.com/xwiki/wiki/developer/view/Main/guidelines/).
