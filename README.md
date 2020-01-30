@@ -1,3 +1,4 @@
 # PayEx Development Guidelines
 
-[PayEx' Development Guidelines have moved to the PayEx Developer Portal](https://developer.payex.com/xwiki/wiki/developer/view/Main/guidelines/).
+PayEx' Development Guidelines, as a part of the rebranding to [Swedbank Pay](https://swedbankpay.com/,
+[have moved to the Swedbank Pay Developer Portal](https://developer.swedbankpay.com/resources/development-guidelines/).
